@@ -64,11 +64,15 @@ def data_frame_init(file_name, config_file_name): #tworzy dataframe, listy jedno
         filter_bool = []
         axis_titles = split(axis_titles)
         while axis_titles != "empty":
-            var_list.append(axis_titles[0])
-            units.append(axis_titles[1])
-            filter_bool.append(axis_titles[2])
-            axis_titles = c.readline()
-            axis_titles = split(axis_titles)
+            try:
+                var_list.append(axis_titles[0])
+                units.append(axis_titles[1])
+                filter_bool.append(axis_titles[2])
+                axis_titles = c.readline()
+                axis_titles = split(axis_titles)
+            except(IndexError):
+                messagebox.showerror("Błąd 5", "Niepoprawny format pliku konfiguracyjnego, zamykanie programu")
+                quit()
         data = f.readline()
         data = split(data)
         list_dics = []
@@ -76,12 +80,14 @@ def data_frame_init(file_name, config_file_name): #tworzy dataframe, listy jedno
         while data != "empty":
             dic = {}
             if len(data) < len(var_list):
-                print(data)
-                print(len(data))
                 messagebox.showerror("Błąd 1", "Błędny plik konfiguracyjny lub danych, zamykanie programu")
                 quit()
             for i in range (inter):
-                dic[var_list[i]] = float(data[i])
+                try:
+                    dic[var_list[i]] = float(data[i])
+                except(ValueError):
+                    messagebox.showerror("Błąd 6", "Niepoprawny format pliku danych, zamykanie programu")
+                    quit()
             list_dics.append(dic)
             data = f.readline()
             data = split(data)
@@ -97,11 +103,15 @@ def data_frame_init(file_name, config_file_name): #tworzy dataframe, listy jedno
         axis_titles = c.readline()
         axis_titles = split(axis_titles)
         while axis_titles != "empty":
-            var_list.append(axis_titles[0])
-            units.append(axis_titles[1])
-            filter_bool.append(axis_titles[2])
-            axis_titles = c.readline()
-            axis_titles = split(axis_titles)
+            try:
+                var_list.append(axis_titles[0])
+                units.append(axis_titles[1])
+                filter_bool.append(axis_titles[2])
+                axis_titles = c.readline()
+                axis_titles = split(axis_titles)
+            except(IndexError):
+                messagebox.showerror("Błąd 5", "Niepoprawny format pliku konfiguracyjnego, zamykanie programu")
+                quit()
         data = f.read(8)
         dic = hex_to_splitdec(data, var_list)
         stop = 0

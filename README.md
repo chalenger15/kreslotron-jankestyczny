@@ -29,6 +29,8 @@ error 1 - not enough collumns in data file, check the data file for empty or fau
 error 2 - data or config files opening error, mostly happens when you cancel selecting a file
 error 3 - Time collumn error, check if config has Time collumn written correctly
 error 4 - first line of Time has bigger value than the last, check if files have matching Time collumn or if data file is correct
+error 5 - wrong config file format
+error 6 - a collumn that is used by program is empty, so it cant be converted into a number
 
 fir parameters:
 0 - no filter
