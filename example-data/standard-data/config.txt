@@ -1,0 +1,11 @@
+Time;ms;0
+Temperature1;C;3
+Temperature2;C;3
+Temperature3;C;3
+Pressure1;kPa;1
+Pressure2;kPa;1
+Battery Voltage;V;4
+Thermistor1;C;3
+Thermistor2;C;3
+N2O_SOL_STATE;state;0
+N2_SOL_STATE;state;0
